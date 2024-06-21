@@ -3,6 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HelloNote.UI.Views.NotesListPage"
              Title="Notes">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="New Note" Command="{Binding NewNoteCommand}"/>
+
+    </ContentPage.ToolbarItems>
     <StackLayout>
         <ListView x:Name="NotesListView"
                   ItemsSource="{Binding Notes}">

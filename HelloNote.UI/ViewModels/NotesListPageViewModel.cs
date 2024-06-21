@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 using HelloNote.Shared;
 using HelloNote.Shared.Services;
+using HelloNote.UI.Views;
 
 namespace HelloNote.UI.ViewModels
 {
@@ -10,6 +12,7 @@ namespace HelloNote.UI.ViewModels
 
 		private ObservableCollection<Note> _notes;
         private readonly INoteService _noteService;
+		public ICommand NewNoteCommand { get; }
 
         public ObservableCollection<Note> Notes
 		{
@@ -26,7 +29,13 @@ namespace HelloNote.UI.ViewModels
 			_noteService = noteService;
 			Notes = new ObservableCollection<Note>();
 			RefreshNotes();
+			NewNoteCommand = new Command(OnNewNote);
 		}
+
+        private async void OnNewNote()
+        {
+			await Shell.Current.GoToAsync(nameof(NotePage));
+        }
 
         private void RefreshNotes()
         {

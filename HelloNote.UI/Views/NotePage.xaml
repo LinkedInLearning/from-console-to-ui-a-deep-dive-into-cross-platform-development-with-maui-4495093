@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloNote.UI.Views.NotePage"
+             Title="Note">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Command="{Binding SaveCommand}"/>
+
+    </ContentPage.ToolbarItems>
+    <StackLayout Padding="10">
+        <Entry x:Name="TitleEntry" Placeholder="Title"/>
+        <Editor x:Name="BodyEditor" Placeholder="Body" AutoSize="TextChanges"/>
+    </StackLayout>
+</ContentPage>
