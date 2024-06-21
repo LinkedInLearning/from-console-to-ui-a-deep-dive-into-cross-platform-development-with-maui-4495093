@@ -1,7 +1,12 @@
 ﻿using HelloNote.CLI.Commands;
 using HelloNote.Shared;
+using Microsoft.Extensions.DependencyInjection;
 
-var dbContext = new AppDbContext();
+var serviceProvider = new ServiceCollection()
+    .AddSingleton<AppDbContext>()
+    .BuildServiceProvider();
+
+var dbContext = serviceProvider.GetRequiredService<AppDbContext>();
 dbContext.Database.EnsureCreated();
 
 var commands = new Dictionary<string, ICommand>
