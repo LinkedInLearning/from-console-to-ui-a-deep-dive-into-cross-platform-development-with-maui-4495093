@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1705.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloNoteApp", "HelloNoteApp\HelloNoteApp.csproj", "{2C4988E5-01AF-4093-9195-FB0C2233792E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloNote.Shared", "HelloNoteApp\HelloNote.Shared.csproj", "{2C4988E5-01AF-4093-9195-FB0C2233792E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloNote.CLI", "HelloNote.CLI\HelloNote.CLI.csproj", "{EE424F9D-76EC-43B4-9C25-2B097BC55EBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloNote.UI", "HelloNote.UI\HelloNote.UI.csproj", "{029D9B02-EA13-490B-9A57-EDB2BD0CD4AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{2C4988E5-01AF-4093-9195-FB0C2233792E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C4988E5-01AF-4093-9195-FB0C2233792E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C4988E5-01AF-4093-9195-FB0C2233792E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE424F9D-76EC-43B4-9C25-2B097BC55EBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE424F9D-76EC-43B4-9C25-2B097BC55EBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE424F9D-76EC-43B4-9C25-2B097BC55EBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE424F9D-76EC-43B4-9C25-2B097BC55EBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{029D9B02-EA13-490B-9A57-EDB2BD0CD4AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{029D9B02-EA13-490B-9A57-EDB2BD0CD4AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{029D9B02-EA13-490B-9A57-EDB2BD0CD4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{029D9B02-EA13-490B-9A57-EDB2BD0CD4AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

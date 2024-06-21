@@ -1,5 +1,5 @@
 ﻿using System;
-namespace HelloNoteApp
+namespace HelloNote.Shared
 {
 	public class Note
 	{

@@ -1,7 +1,8 @@
-﻿using HelloNoteApp;
-using HelloNoteApp.Commands;
+﻿using HelloNote.CLI.Commands;
+using HelloNote.Shared;
 
-using var dbContext = new AppDbContext();
+var dbContext = new AppDbContext();
+dbContext.Database.EnsureCreated();
 
 var commands = new Dictionary<string, ICommand>
 {
