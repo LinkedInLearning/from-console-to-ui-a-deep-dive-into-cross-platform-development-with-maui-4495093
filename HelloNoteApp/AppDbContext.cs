@@ -13,10 +13,16 @@ namespace HelloNote.Shared
         public AppDbContext()
         {
 
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
+            var folder = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                "HelloNote");
 
-            DbPath = Path.Join(path, "notes.db");
+            if(!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+
+            DbPath = Path.Combine(folder, "notes.db");
 
         }
 
