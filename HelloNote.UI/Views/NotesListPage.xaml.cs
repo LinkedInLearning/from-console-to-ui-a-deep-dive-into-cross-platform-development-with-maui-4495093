@@ -1,13 +1,14 @@
-﻿using HelloNote.UI.ViewModels;
+﻿using HelloNote.Shared.Services;
+using HelloNote.UI.ViewModels;
 
 namespace HelloNote.UI.Views;
 
 public partial class NotesListPage : ContentPage
 {
-	public NotesListPage()
+	public NotesListPage(INoteService noteService)
 	{
 		InitializeComponent();
-		BindingContext = new NotesListPageViewModel();
+		BindingContext = new NotesListPageViewModel(noteService);
 	}
 
 }

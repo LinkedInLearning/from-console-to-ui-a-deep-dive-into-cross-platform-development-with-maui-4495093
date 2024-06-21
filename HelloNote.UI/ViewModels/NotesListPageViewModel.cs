@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using HelloNote.Shared;
+using HelloNote.Shared.Services;
 
 namespace HelloNote.UI.ViewModels
 {
@@ -8,8 +9,9 @@ namespace HelloNote.UI.ViewModels
 	{
 
 		private ObservableCollection<Note> _notes;
+        private readonly INoteService _noteService;
 
-		public ObservableCollection<Note> Notes
+        public ObservableCollection<Note> Notes
 		{
 			get => _notes;
 			set
@@ -19,8 +21,9 @@ namespace HelloNote.UI.ViewModels
 			}
 		}
 
-		public NotesListPageViewModel()
+		public NotesListPageViewModel(INoteService noteService)
 		{
+			_noteService = noteService;
 			Notes = new ObservableCollection<Note>();
 			RefreshNotes();
 		}
@@ -28,8 +31,10 @@ namespace HelloNote.UI.ViewModels
         private void RefreshNotes()
         {
 			Notes.Clear();
-			Notes.Add(new Note { Title = "Sample Note", Content = "This is a sample note" });
-            Notes.Add(new Note { Title = "Another Note", Content = "This is another sample note" });
+			foreach(var note in _noteService.GetNotes())
+			{
+				Notes.Add(note);
+			}
         }
     }
 }
