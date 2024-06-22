@@ -11,10 +11,16 @@ namespace HelloNote.UI.ViewModels
 		private string _title;
 		private string _content;
 
+		public bool IsExistingNote => Id != 0;
+
 		public int Id
 		{
 			get { return _id; }
-			set { _id = value; }
+			set {
+				_id = value;
+				OnPropertyChanged();
+				OnPropertyChanged(nameof(IsExistingNote));
+			}
 		}
 
 		public string Title
@@ -42,15 +48,27 @@ namespace HelloNote.UI.ViewModels
 		private readonly INoteService _noteService;
 		public ICommand SaveCommand { get; }
         public ICommand BackCommand { get; }
+		public ICommand DeleteCommand { get; }
 
         public NoteViewModel(INoteService noteService)
 		{
 			_noteService = noteService;
 			SaveCommand = new Command(CreateNote, CanSaveNote);
 			BackCommand = new Command(OnBackButtonPressed);
+			DeleteCommand = new Command(DeleteNote);
 		}
 
-		private void CreateNote()
+        private async void DeleteNote()
+        {
+			bool confirm = await Application.Current.MainPage.DisplayAlert("Confirm Delete", "Are you sure you want to delete this note?", "Yes", "No");
+			if(confirm)
+			{
+				_noteService.DeleteNoteByTitle(Title);
+				await Shell.Current.GoToAsync("..");
+			}
+        }
+
+        private void CreateNote()
 		{
 
 			var newNote = new Note

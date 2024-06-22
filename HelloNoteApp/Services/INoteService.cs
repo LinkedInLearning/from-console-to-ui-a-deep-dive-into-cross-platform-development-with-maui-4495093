@@ -7,6 +7,7 @@ namespace HelloNote.Shared.Services
 		void CreateNote(Note note);
 		Note GetNoteByTitle(string title);
 		void UpdateNote(Note note);
+		void DeleteNoteByTitle(string title);
 	}
 }
 

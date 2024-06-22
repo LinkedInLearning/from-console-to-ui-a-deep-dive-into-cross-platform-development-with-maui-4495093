@@ -40,6 +40,16 @@ namespace HelloNote.Shared.Services
             _dbContext.Notes.Update(note);
             _dbContext.SaveChanges();
         }
+
+        public void DeleteNoteByTitle(string title)
+        {
+            var note = _dbContext.Notes.FirstOrDefault(n => n.Title == title);
+            if(note != null)
+            {
+                _dbContext.Notes.Remove(note);
+                _dbContext.SaveChanges();
+            }
+        }
     }
 }
 
