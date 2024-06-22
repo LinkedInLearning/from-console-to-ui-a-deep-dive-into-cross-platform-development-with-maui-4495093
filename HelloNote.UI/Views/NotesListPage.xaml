@@ -9,7 +9,8 @@
     </ContentPage.ToolbarItems>
     <StackLayout>
         <ListView x:Name="NotesListView"
-                  ItemsSource="{Binding Notes}">
+                  ItemsSource="{Binding Notes}"
+                  ItemSelected="OnNoteSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Title}" Detail="{Binding Content}"/>

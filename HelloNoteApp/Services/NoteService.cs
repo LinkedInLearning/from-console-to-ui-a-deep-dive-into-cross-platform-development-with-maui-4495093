@@ -22,6 +22,11 @@ namespace HelloNote.Shared.Services
             _dbContext.Notes.Add(note);
             _dbContext.SaveChanges();
         }
+
+        public Note GetNoteByTitle(string title)
+        {
+            return _dbContext.Notes.FirstOrDefault(n => n.Title == title);
+        }
     }
 }
 
