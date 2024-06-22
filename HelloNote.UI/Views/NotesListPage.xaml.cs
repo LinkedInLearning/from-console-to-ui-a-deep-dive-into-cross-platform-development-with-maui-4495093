@@ -11,4 +11,10 @@ public partial class NotesListPage : ContentPage
 		BindingContext = new NotesListPageViewModel(noteService);
 	}
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+		(BindingContext as NotesListPageViewModel)?.RefreshNotes();
+    }
+
 }

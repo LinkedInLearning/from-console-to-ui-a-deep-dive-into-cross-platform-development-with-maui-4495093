@@ -1,5 +1,6 @@
 ﻿using HelloNote.Shared;
 using HelloNote.Shared.Services;
+using HelloNote.UI.ViewModels;
 using HelloNote.UI.Views;
 using Microsoft.Extensions.Logging;
 
@@ -21,9 +22,13 @@ public static class MauiProgram
 		builder.Services.AddSingleton<AppDbContext>();
 		builder.Services.AddSingleton<INoteService, NoteService>();
 		builder.Services.AddTransient<NotesListPage>();
+        builder.Services.AddTransient<NotePage>();
+        builder.Services.AddTransient<NoteViewModel>();
+
+
 
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
 		return builder.Build();

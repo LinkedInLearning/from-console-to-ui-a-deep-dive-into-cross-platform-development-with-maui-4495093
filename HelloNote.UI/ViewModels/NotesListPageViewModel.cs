@@ -37,7 +37,7 @@ namespace HelloNote.UI.ViewModels
 			await Shell.Current.GoToAsync(nameof(NotePage));
         }
 
-        private void RefreshNotes()
+        public void RefreshNotes()
         {
 			Notes.Clear();
 			foreach(var note in _noteService.GetNotes())

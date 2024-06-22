@@ -8,7 +8,7 @@
 
     </ContentPage.ToolbarItems>
     <StackLayout Padding="10">
-        <Entry x:Name="TitleEntry" Placeholder="Title"/>
-        <Editor x:Name="BodyEditor" Placeholder="Body" AutoSize="TextChanges"/>
+        <Entry x:Name="TitleEntry" Placeholder="Title" Text="{Binding Title}"/>
+        <Editor x:Name="BodyEditor" Placeholder="Body" AutoSize="TextChanges" Text="{Binding Content}"/>
     </StackLayout>
 </ContentPage>

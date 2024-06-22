@@ -16,6 +16,12 @@ namespace HelloNote.Shared.Services
         {
             return _dbContext.Notes.ToList();
         }
+
+        public void CreateNote(Note note)
+        {
+            _dbContext.Notes.Add(note);
+            _dbContext.SaveChanges();
+        }
     }
 }
 
