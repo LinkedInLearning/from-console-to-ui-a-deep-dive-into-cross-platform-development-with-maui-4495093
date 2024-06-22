@@ -6,6 +6,7 @@ namespace HelloNote.Shared.Services
 		IEnumerable<Note> GetNotes();
 		void CreateNote(Note note);
 		Note GetNoteByTitle(string title);
+		void UpdateNote(Note note);
 	}
 }
 

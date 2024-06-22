@@ -27,6 +27,19 @@ namespace HelloNote.Shared.Services
         {
             return _dbContext.Notes.FirstOrDefault(n => n.Title == title);
         }
+
+        public void UpdateNote(Note note)
+        {
+            var existingNote = _dbContext.Notes.Local.FirstOrDefault(n => n.Id == note.Id);
+
+            if(existingNote != null)
+            {
+                _dbContext.Entry(existingNote).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+            }
+
+            _dbContext.Notes.Update(note);
+            _dbContext.SaveChanges();
+        }
     }
 }
 

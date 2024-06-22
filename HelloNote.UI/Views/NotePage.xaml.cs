@@ -29,6 +29,7 @@ public partial class NotePage : ContentPage
 			}
 			else
 			{
+				viewModel.Id = 0;
 				viewModel.Title = string.Empty;
 				viewModel.Content = string.Empty;
 			}

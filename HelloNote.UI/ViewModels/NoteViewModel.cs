@@ -7,9 +7,15 @@ namespace HelloNote.UI.ViewModels
 {
 	public class NoteViewModel : BindableObject
 	{
-
+		private int _id;
 		private string _title;
 		private string _content;
+
+		public int Id
+		{
+			get { return _id; }
+			set { _id = value; }
+		}
 
 		public string Title
 		{
@@ -49,11 +55,20 @@ namespace HelloNote.UI.ViewModels
 
 			var newNote = new Note
 			{
+				Id = Id,
 				Title = Title,
 				Content = Content
 			};
 
-			_noteService.CreateNote(newNote);
+			if(Id == 0)
+			{
+                _noteService.CreateNote(newNote);
+            }
+			else
+			{
+				_noteService.UpdateNote(newNote);
+			}
+			
 			Shell.Current.GoToAsync("..");
 			
 		}
@@ -77,11 +92,13 @@ namespace HelloNote.UI.ViewModels
 			var note = _noteService.GetNoteByTitle(title);
 			if(note != null)
 			{
+				Id = note.Id;
 				Title = note.Title;
 				Content = note.Content;
 			}
 			else
 			{
+				Id = 0;
 				Title = string.Empty;
 				Content = string.Empty;
 			}
