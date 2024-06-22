@@ -71,6 +71,21 @@ namespace HelloNote.UI.ViewModels
 				await Shell.Current.GoToAsync("..");
 			}
 		}
+
+		public void LoadNoteByTitle(string title)
+		{
+			var note = _noteService.GetNoteByTitle(title);
+			if(note != null)
+			{
+				Title = note.Title;
+				Content = note.Content;
+			}
+			else
+			{
+				Title = string.Empty;
+				Content = string.Empty;
+			}
+		}
 	}
 }
 
