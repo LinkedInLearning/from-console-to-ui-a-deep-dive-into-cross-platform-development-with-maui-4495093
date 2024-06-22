@@ -18,6 +18,7 @@ namespace HelloNote.UI.ViewModels
 			{
 				_title = value;
 				OnPropertyChanged();
+				((Command)SaveCommand).ChangeCanExecute();
 			}
 		}
 
@@ -28,16 +29,19 @@ namespace HelloNote.UI.ViewModels
             {
                 _content = value;
                 OnPropertyChanged();
+                ((Command)SaveCommand).ChangeCanExecute();
             }
         }
 
 		private readonly INoteService _noteService;
 		public ICommand SaveCommand { get; }
+        public ICommand BackCommand { get; }
 
         public NoteViewModel(INoteService noteService)
 		{
 			_noteService = noteService;
-			SaveCommand = new Command(CreateNote);
+			SaveCommand = new Command(CreateNote, CanSaveNote);
+			BackCommand = new Command(OnBackButtonPressed);
 		}
 
 		private void CreateNote()
@@ -52,6 +56,20 @@ namespace HelloNote.UI.ViewModels
 			_noteService.CreateNote(newNote);
 			Shell.Current.GoToAsync("..");
 			
+		}
+
+		private bool CanSaveNote()
+		{
+			return !string.IsNullOrWhiteSpace(Title) && !string.IsNullOrWhiteSpace(Content);
+		}
+
+		private async void OnBackButtonPressed()
+		{
+			bool answer = await Application.Current.MainPage.DisplayAlert("Warning", "Do you really want to go back? Unsaved changes will be lost.", "Yes", "No");
+			if(answer)
+			{
+				await Shell.Current.GoToAsync("..");
+			}
 		}
 	}
 }
