@@ -2,6 +2,12 @@
 
 This is the repository for the LinkedIn Learning course "From Console to UI: A Deep Dive into Cross-Platform Development with MAUI." 
 
+![tn-url]
+
+<p>Explore the steps involved in building cross-platform applications using the .NET MAUI framework. First, review the key features and benefits of MAUI and steps for setting up a new project. Then, find out how to create a service layer to manage data and business logic, ensuring a clean separation from the UI, and how to configure the database path for SQLite databases. Learn how to leverage the Model-View-ViewModel (MVVM) pattern, creating views for listing and editing notes, including adding necessary validations to improve data integrity. </p>
+<br/>
+<p>The course also covers reading, updating, and deleting notes through the UI, and using CRUD operations within a MAUI app. Become adept at setting up MAUI projects, implementing MVVM, handling data operations, and working with MAUI controls for a comprehensive application development experience. Join instructor Jesse Freeman who helps you gain the confidence and skills needed to build and deploy powerful cross-platform applications with .NET.</p>
+
 ## Instructions
 
 This repository has branches for each of the lessons in the course. You can use the branch pop-up menu in GitHub to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go directly to the branch you want to access.
@@ -66,3 +72,5 @@ To use these exercise files, you must have the following installed:
 - .NET MAUI workload
 
 Follow the instructions on the [Microsoft .NET MAUI documentation](https://docs.microsoft.com/dotnet/maui/get-started/installation) to set up your development environment.
+
+[tn-url]: https://media.licdn.com/dms/image/D560DAQEQWe7sELWFfg/learning-public-crop_675_1200/0/1722571094854?e=2147483647&v=beta&t=pW4jjN4N19tlqQ1_M8Gb_MAdf6kzKr9EkplBfPJdfSE
